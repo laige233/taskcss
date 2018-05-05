@@ -1,0 +1,94 @@
+<!--<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>confirm</title>
+  <script type="text/javascript">
+  function rec(){
+    var mymessage=confirm("11111");
+    if(mymessage==true)
+    {
+    	document.write("你是女士!");
+    }
+    else
+    {
+        document.write("你是男士!");
+    }
+  }    
+  </script>
+</head>
+<body>
+    <input name="button" type="button" onClick="rec()" value="点击我，弹出确认对话框" />
+</body>
+</html>-->
+<!--<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>prompt</title>
+  <script type="text/javascript">
+  function rec(){
+	var score; //score变量，用来存储用户输入的成绩值。
+	var str1="这个";
+	str2="数字";
+	score = prompt(str1,str2);
+	if(score>=90)
+	{
+	   document.write("你很棒!");
+	}
+	else if(score>=75)
+    {
+	   document.write("不错吆!");
+	}
+	else if(score>=60)
+    {
+	   document.write("要加油!");
+    }
+    else
+	{
+       document.write("要努力了!");
+	}
+  }
+  </script>
+</head>
+<body>
+    <input name="button" type="button" onClick="rec()" value="点击我，对成绩做评价!" />
+</body>
+</html>-->
+	<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>switch</title>
+<script type="text/JavaScript">
+var myweek =8;//myweek表示星期几变量
+switch(myweek)
+{
+ case 1:
+ document.write("学习语文");
+ break;
+ case 2:
+ document.write("学习理念知识");
+ break;
+ case 3:
+ document.write("学习数学");
+ break;
+ case 4:
+ document.write("到企业实践");
+ break;
+ case 5:
+ document.write("总结经验");
+ break;
+ case 6:
+ case 7:
+ document.write("周六、日休息和娱乐");
+ break;
+ default:
+ document.write("不成立");
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

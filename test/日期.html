@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>练习</title>
+	</head>
+
+	<body>
+		<!--<p> 这是一个段落</p>-->
+		<!--<button onclick="maFunction()">点击这里</button>-->
+		<p id="text"></p>
+
+	</body>
+	<script type="text/javascript">
+		function startTime() {
+			var today = new Date()
+			var h = today.getHours()
+			var m = today.getMinutes()
+			var s = today.getSeconds()
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById("text").innerHTML = h + "：" + m + ":" + s;
+			var t = setTimeout('startTime()', 500)
+		}
+
+		function checkTime(i) {
+			if(i < 10) {
+				i = "0" + i;
+			}
+			return i;
+		}
+		startTime()
+	</script>
+
+</html>

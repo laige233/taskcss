@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>九格</title>
+		<style type="text/css">
+			.text{
+				width: 80%;
+				padding-bottom: 500px;
+				background: red;
+				margin: auto;
+			}
+			ul {
+				width: 52rem;
+				margin: auto;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+				display: inline-block;
+				width: 32%;
+				padding-bottom: 180px;
+				background: #985F0D;
+			}
+			
+			input {
+				width: 30%;
+				height: 60px;
+				border: none;
+			}
+			
+			#ent {
+				float: right;
+				background: olive;
+				margin-right: 0.7rem;
+			}
+			
+			#but {
+				background: blueviolet;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="text">
+		<ul id="weap">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<input type="button" name="" id="but" value="开始" />
+			<input type="button" name="" id="ent" value="结束" />
+		</ul>
+		</div>
+		<script type="text/javascript">
+			window.onload = function change() {
+				var box = weap.getElementsByTagName('li');
+				var timer;
+				var end = ['orange', 'pink', 'black', 'yellow', 'red', 'blue'];
+				function tion() {
+					var weap = document.getElementById('weap');
+					var but = document.getElementById('but');
+					var ent = document.getElementById('ent');
+					for(var i = 0; i < box.length; i++) {
+						box[i].style.background = "#C1C0C4";
+					}
+					for(var m = 0; m < 3; m++) {
+						var endnum = Math.floor(Math.random() * 6);
+						var boxnum = Math.floor(Math.random() * 9);
+						box[boxnum].style.background = end[endnum];
+					}
+				}
+				but.onclick = function() {
+					tion();
+					clearInterval(timer);
+					timer = setInterval(tion, 1000);
+				}
+				ent.onclick = function() {
+					clearInterval(timer);
+					for(var i = 0; i < box.length; i++) {
+						box[i].style.background = "#008100";
+					}
+				}
+
+			}
+		</script>
+
+	</body>
+
+</html>

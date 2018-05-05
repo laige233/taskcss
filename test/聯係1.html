@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>000</title>
+	</head>
+	<style type="text/css">
+
+	</style>
+	<body>
+		<ul id="end">
+		</ul>
+		<ul id="ent"></ul>
+		<input type="button" value="升序" id="rise" />
+		<input type="button" value="降序" id="fall" />
+		<input type="button" value="乱序" id="riod" />
+	</body>
+	<script type="text/javascript">
+		var rise = document.getElementById('rise');
+		var fall = document.getElementById('fall');
+		var riod = document.getElementById('riod');
+		var too = [
+			['绍兴', 555],
+			['上海', 0],
+			['福州', 121],
+			['北京', 350],
+			['北京', 650],
+			['北京', 1140],
+			['宁波', 750],
+			['北京', 880],
+			['北京', 90],
+			['广州', 1411]
+		];
+		var end = document.getElementById("end");
+		var ent = document.getElementById("ent");
+		for(var i = 0; i < too.length; i++) {
+			var text = document.createElement('li');
+			var node = document.createTextNode(too[i][0] + "城市污染指数为：" + too[i][1]);
+			text.appendChild(node);
+			ent.appendChild(text);
+			end.appendChild(text);
+		}
+		rise.onclick = function() {
+			too.sort(function(e, e2) {
+				return e[1] > e2[1];
+			})
+			ent.innerHTML = "";
+			var hr = document.createElement('hr')
+			ent.appendChild(hr);
+			for(var i = 0; i < too.length; i++) {
+				var text = document.createElement('li');
+				var node = document.createTextNode(too[i][0] + "城市污染指数为：" + too[i][1]);
+				text.appendChild(node);
+				end.appendChild(text);
+				ent.appendChild(text);
+			}
+		}
+		fall.onclick = function() {
+			too.sort(function(e, e2) {
+				return e[1] < e2[1];
+			})
+			ent.innerHTML = "";
+			var hr = document.createElement('hr')
+			ent.appendChild(hr);
+			for(var i = 0; i < too.length; i++) {
+				var text = document.createElement('li');
+				var node = document.createTextNode(too[i][0] + "城市污染指数为：" + too[i][1]);
+				text.appendChild(node);
+				end.appendChild(text);
+				ent.appendChild(text);
+			}
+		}
+		riod.onclick = function() {
+			too.sort(function(e, e2) {
+				return 0.3 - Math.random();
+			})
+			ent.innerHTML = "";
+			var hr = document.createElement('hr');
+			ent.appendChild(hr);
+			for(var i = 0; i < too.length; i++) {
+				var text = document.createElement('li');
+				var node = document.createTextNode(too[i][0] + "城市污染指数为：" + too[i][1]);
+				text.appendChild(node);
+				end.appendChild(text);
+				ent.appendChild(text);
+			}
+		}
+	</script>
+</html>

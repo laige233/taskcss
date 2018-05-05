@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>assets</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.wrap {
+				margin: auto;
+				height: 400px;
+				width: 900px;
+				/*important;*/
+				overflow: hidden;
+			}
+			
+			ul {
+				list-style: none;
+				font-size: 0;
+				width: 4500px;
+				/*强制文本不换行*/
+				white-space: nowrap;
+				height: 400px;
+				/*过渡*/
+				transition: all 1.5s;
+			}
+			
+			ul li {
+				font-size: 10px;
+				display: inline-block;
+				width: 900px;
+				height: 100%;
+			}
+			
+			ul li img {
+				width: 100%;
+			}
+			/*按钮*/
+			
+			ol {
+				list-style: none;
+				position: absolute;
+				z-index: 99999;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 0;
+			}
+			
+			ol li {
+				display: inline-block;
+				margin-right: 10px;
+				width: 40px;
+				line-height: 40px;
+				background: pink;
+				text-align: center;
+				font-size: 12px;
+				opacity: 0.5;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<ol>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var imgplay = ~ function() {
+			var move = document.querySelectorAll('.wrap ul')[0];
+			var img = document.querySelectorAll('.wrap ul li');
+			var color = ['red', 'blue', 'black', 'yellow', 'purple'];
+			var timer;
+			//加个背景。。
+			for(var i = 0; i < img.length; i++) {
+				img[i].style['background'] = color[i]
+			}
+			//
+			function imgmove() {
+				var now = move.offsetLeft; //获取现在的左边距
+				if(now == -3600) {
+					now = 900; //900-900等于0, 0的时候就最后一张
+				}
+				//最后设置
+//				move.style.marginLeft = now - 900 + 'px';
+			}
+//			timer = setInterval(imgmove, 1500)
+		}()
+	</script>
+
+</html>

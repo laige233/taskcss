@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>000</title>
+		<style type="text/css">
+			#wrap {
+				margin-top: 20px;
+			}
+			
+			.box {
+				width: 100px;
+				height: 100px;
+				background: red;
+				float: left;
+				margin-left: 5px;
+				color: #FFFFFF;
+				text-align: center;
+				line-height: 100px;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<label>输入：</label><input type="text" id="txt"/>
+		<input type="button" value="左侧入" id="left_into" />
+		<input type="button" value="右侧入" id="rig_into" />
+		<input type="button" value="左侧出" id="left_out" />
+		<input type="button" value="右侧出" id="right_out" />
+		<div id="wrap">
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			var txt = document.getElementById("txt");
+			var left_into = document.getElementById("left_into");
+			var rig_into = document.getElementById("rig_into");
+			var left_out = document.getElementById("left_out");
+			var right_out = document.getElementById("right_out");
+			var block = [];
+			var wrap = document.getElementById('wrap');
+			var res1 = /^\d+$/;
+			function render() {
+				for(var i = 0; i < block.length; i++) {
+					var oDiv = document.createElement('div');
+					oDiv.onclick =function(){
+						this.parentNode.removeChild(this);
+					}
+					oDiv.className = 'box';
+					oDiv.innerHTML = block[i];
+					wrap.appendChild(oDiv);
+				}
+			}
+			left_out.onclick = function() {
+				var res = block.shift();
+				console.log(block);
+				wrap.innerHTML = '';
+				render();
+				alert('您删除的是：' + res)
+			}
+			right_out.onclick = function() {
+				var res = block.pop();
+				console.log(block);
+				wrap.innerHTML = '';
+				render();
+				alert('您删除的是：' + res)
+			}
+			left_into.onclick = function() {
+				
+				if(!res1.test(txt.value)) {
+               alert('只能输入数字');
+               return;
+			}
+				block.unshift(txt.value);
+				console.log(block);
+				wrap.innerHTML = '';
+				render();
+			}
+			rig_into.onclick = function() {
+				if(!res1.test(txt.value)) {
+               alert('只能输入数字');
+               return;
+			}
+				block.push(txt.value);
+				console.log(block);
+				wrap.innerHTML = '';
+				render();
+			}
+		}
+	</script>
+
+</html>

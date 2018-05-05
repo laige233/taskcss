@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		
+	</head>
+	<body>
+		<div class="container">
+			<style type="text/css">
+				.itemList {
+					/*父元素*/
+					position: relative;
+				}
+				
+				.itemList .itemStyle {
+					border: 1px solid red;
+				}
+				
+				.itemList .hideMain {
+					/*隐藏的定位。相对父元素*/
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: gray;
+					opacity: 0.5;
+					z-index: 9999;/*保持显示在最上层*/
+					display: none;
+				}
+				.itemList:hover .hideMain {
+					/*划过父元素*/
+					display: block;
+				}
+			</style>
+			<div class="row itemList">
+				<div class="col-md-4 itemStyle">
+					<h1>内部的</h1>
+					<h1>内部的</h1>
+					<h1>内部的</h1>
+					<div class="hideMain">
+						<h1>隐藏</h1>
+						<h1>隐藏</h1>
+						<h1>隐藏</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
